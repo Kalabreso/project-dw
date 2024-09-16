@@ -15,7 +15,7 @@ class CreateCorsTable extends Migration
     {
         Schema::create('cors', function (Blueprint $table) {
             $table->id();
-            $table->String('nome');
+            $table->String('name');
             $table->timestamps();
         });
     }

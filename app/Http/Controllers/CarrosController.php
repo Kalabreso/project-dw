@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cor;
 use Illuminate\Http\Request;
-use Dompdf\Dompdf;
 
-
-class CorController extends Controller
+class CarrosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class CorController extends Controller
      */
     public function index()
     {
-        $data = Cor::all();
-        return view('cor.index', compact(['data']));
+        //
     }
 
     /**
@@ -27,8 +23,7 @@ class CorController extends Controller
      */
     public function create()
     {
-        $cor = new Cor();
-        return view('cor.create', compact(['cor']));
+        //
     }
 
     /**
@@ -38,13 +33,8 @@ class CorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
-        $cor = new Cor;
-        $cor->name = $request->name;
-        $cor->save();
-
-        return redirect()->route('cor.index');
-
+    {
+        //
     }
 
     /**
@@ -55,14 +45,7 @@ class CorController extends Controller
      */
     public function show($id)
     {
-        $cor = Cor::find($id);
-        return view('cor.show', compact(['cor']));
-
-        if(isset($cor)){
-            return view('cor.show', compact('cor'));
-        }
-
-        return "<h1>Cor não encontrada</h1>";
+        //
     }
 
     /**
@@ -73,13 +56,7 @@ class CorController extends Controller
      */
     public function edit($id)
     {
-        $cor = Cor::find($id);
-        if(isset($cor)){
-            return view('cor.edit', compact('cor'));
-        }
-        
-        return "<h1>Cor não encontrada</h1>";
-
+        //
     }
 
     /**
@@ -91,13 +68,7 @@ class CorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cor = Cor::find($id);
-        if(isset($cor)){
-        
-            $cor->name = $request->name;
-            $cor->save();
-            return redirect()->route('cor.index');
-        }
+        //
     }
 
     /**
@@ -108,13 +79,6 @@ class CorController extends Controller
      */
     public function destroy($id)
     {
-        $cor = Cor::find($id);
-        
-        if(isset($cor)){
-            $cor->delete();
-            return redirect()->route('cor.index');
-        }
-        
-        return "<h1>Cor não encontrada</h1>";
+        //
     }
 }

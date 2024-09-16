@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cor;
-use Illuminate\Http\Request;
+use App\Models\Marca;
+use App\Models\Modelo;
 use Dompdf\Dompdf;
+use Illuminate\Http\Request;
 
-
-class CorController extends Controller
+class MarcaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class CorController extends Controller
      */
     public function index()
     {
-        $data = Cor::all();
-        return view('cor.index', compact(['data']));
+        $data = Marca::all();
+        return view('marca.index', compact(['data']));
     }
 
     /**
@@ -27,8 +27,8 @@ class CorController extends Controller
      */
     public function create()
     {
-        $cor = new Cor();
-        return view('cor.create', compact(['cor']));
+        $marca = new Marca();
+        return view('marca.create', compact(['marca']));
     }
 
     /**
@@ -38,13 +38,12 @@ class CorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {        
-        $cor = new Cor;
-        $cor->name = $request->name;
-        $cor->save();
+    {
+        $marca = new Marca;
+        $marca->name = $request->name;
+        $marca->save();
 
-        return redirect()->route('cor.index');
-
+        return redirect()->route('marca.index');
     }
 
     /**
@@ -55,14 +54,14 @@ class CorController extends Controller
      */
     public function show($id)
     {
-        $cor = Cor::find($id);
-        return view('cor.show', compact(['cor']));
+        $marca = Marca::find($id);
+        return view('marca.show', compact(['marca']));
 
-        if(isset($cor)){
-            return view('cor.show', compact('cor'));
+        if(isset($marca)){
+            return view('marca.show', compact('marca'));
         }
 
-        return "<h1>Cor não encontrada</h1>";
+        return "<h1>Marca não encontrada</h1>";
     }
 
     /**
@@ -73,13 +72,12 @@ class CorController extends Controller
      */
     public function edit($id)
     {
-        $cor = Cor::find($id);
-        if(isset($cor)){
-            return view('cor.edit', compact('cor'));
+        $marca = Marca::find($id);
+        if(isset($marca)){
+            return view('marca.edit', compact('marca'));
         }
         
-        return "<h1>Cor não encontrada</h1>";
-
+        return "<h1>Marca não encontrada</h1>";
     }
 
     /**
@@ -91,12 +89,12 @@ class CorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cor = Cor::find($id);
-        if(isset($cor)){
+        $marca = Marca::find($id);
+        if(isset($marca)){
         
-            $cor->name = $request->name;
-            $cor->save();
-            return redirect()->route('cor.index');
+            $marca->name = $request->name;
+            $marca->save();
+            return redirect()->route('marca.index');
         }
     }
 
@@ -108,13 +106,15 @@ class CorController extends Controller
      */
     public function destroy($id)
     {
-        $cor = Cor::find($id);
-        
-        if(isset($cor)){
-            $cor->delete();
-            return redirect()->route('cor.index');
+        {
+            $marca = Marca::find($id);
+            
+            if(isset($marca)){
+                $marca->delete();
+                return redirect()->route('marca.index');
+            }
+            
+            return "<h1>Marca não encontrada</h1>";
         }
-        
-        return "<h1>Cor não encontrada</h1>";
     }
 }
