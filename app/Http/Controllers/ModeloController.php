@@ -16,7 +16,7 @@ class ModeloController extends Controller
      */
     public function index()
     {
-        $data = Modelo::with('marca')->get();
+        $data = Modelo::with(['marca'])->get();
         return view('modelo.index', compact(['data']));
     }
 

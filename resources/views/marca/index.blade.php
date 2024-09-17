@@ -22,7 +22,7 @@
     <table class="table table-striped">
             <thead>
     
-    <th>NAME</th>
+    <th>NOME</th>
     <th>ACTIONS</th>
     </thead>
             <tbody>

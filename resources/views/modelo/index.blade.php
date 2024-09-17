@@ -22,7 +22,7 @@
     <table class="table table-striped">
             <thead>
     
-    <th>NAME</th>
+    <th>NOME</th>
     <th>MARCA</th>
     <th>ACTIONS</th>
     </thead>
@@ -30,8 +30,8 @@
           @foreach($data as $item)
 
           <tr>
-            <td>{{$item->id}}</td>
-            <td>{{$item->name}}</td>    
+            <td>{{$item->name}}</td>
+            <td>{{$item->marca->name}}</td>    
             
             <td>
                 <a href="{{route('modelo.show', $item->id)}}" class="btn btn-danger">

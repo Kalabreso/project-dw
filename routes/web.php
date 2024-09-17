@@ -25,3 +25,6 @@ Route::resource('/marca', MarcaController::class);
 Route::resource('/modelo', ModeloController::class);
 
 
+
+
+
