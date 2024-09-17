@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Route::resource('/cor', CorController::class);
 Route::resource('/marca', MarcaController::class);
-Route::resource('/modelo', ModeloController::class);
+Route::resource('/modelo', ModeloController::class); //slc
 
 
 
